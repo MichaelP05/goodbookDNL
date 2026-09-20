@@ -1,8 +1,3 @@
-# This is a sample Python script for downloading files from site.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-import sys                      # for reading command prompt
 import os
 import requests
 from bs4 import BeautifulSoup as BeaS
@@ -51,6 +46,7 @@ def file_to_docx(pathname, filename, info):
     # Завдаємо параметри заголовки
     style_h1 = doc_handler.styles['Heading 1']
     style_h1.paragraph_format.alignment = WD_ALIGN_PARAGRAPH.LEFT
+    style_h1.font.underline = WD_UNDERLINE.SINGLE
     font_h1 = style_h1.font
     font_h1.name = 'Arial'
     font_h1.size = Pt(18)
@@ -62,7 +58,7 @@ def file_to_docx(pathname, filename, info):
     font_h2.name = 'Arial'
     font_h2.size = Pt(16)
     font_h2.color.rgb = RGBColor(0, 0, 0)
-    doc_handler.styles['Heading 3'].font.bold =
+    doc_handler.styles['Heading 3'].font.bold = False
     style_h3 = doc_handler.styles['Heading 3']
     style_h3.paragraph_format.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
     # style_h3.font.underline = WD_UNDERLINE.DOTTED
